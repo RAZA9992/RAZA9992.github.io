@@ -1,0 +1,40 @@
+@font-face {
+    font-family: "Fedra Sans";
+    src: url("./custom\ font/FedraSansAltPro-BoldLF.ttf");
+}
+
+body {
+    background-color: #0096a1 !important;
+}
+
+* {
+    font-family: "Fedra Sans";
+}
+
+.yellowText {
+    color: #ffc425;
+}
+
+.contentWrapper {
+    padding-top: 4%;
+    padding: 4% 0%;
+    color: white;
+    /* width: 25%; */
+    font-size: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.contentWrapper > div > img {
+    max-width: 20%;
+    margin-bottom: 4%;
+}
+
+@media (max-width: 768px) {
+    .contentWrapper > div > img {
+        max-width: 50%;
+        margin-bottom: 4%;
+    }
+}
