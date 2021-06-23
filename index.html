@@ -34,16 +34,49 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/8bbf807456.js" crossorigin="anonymous"></script>
     <script>
+        // Get Nav URL
+        function getNavUrl() {
+            // Get URL
+            return window.location.search.replace("?", "");
+        };
 
-        function timeCalculation(){
-            let sgTime = '';
-            let currentDate = '';
-            sgTime = moment().tz('Asia/Singapore').format('LT');
-            console.log("Current Time in SG: "+sgTime);
-            currentDate = moment().tz('Asia/Singapore').format('DD-MMMM-YYYY');
-            console.log("Current Date in SG: "+currentDate);
-            document.getElementById("date").innerHTML = currentDate;
-            document.getElementById("time").innerHTML = sgTime;
+        function getParameters(url) {
+            // console.log(decodeURI(url))
+            url = decodeURI(url);
+            // Params obj
+            var params = {};
+            // To lowercase
+            url = url.toLowerCase();
+            // To array
+            url = url.split('&');
+
+            // Iterate over URL parameters array
+            var length = url.length;
+            for (var i = 0; i < length; i++) {
+                // Create prop
+                var prop = url[i].slice(0, url[i].search('='));
+                // Create Val
+                var value = url[i].slice(url[i].search('=')).replace('=', '');
+                // Params New Attr
+                params[prop] = value;
+            }
+            return params;
+        };
+
+        // Call of getParameters
+        console.log(getParameters(getNavUrl()), "test");
+        function timeCalculation() {
+            // let sgTime = '';
+            // let currentDate = '';
+            let queryParams = getParameters(getNavUrl()); // date and time
+            // sgTime = moment().tz('Asia/Singapore').format('LT');
+            // console.log("Current Time in SG: " + sgTime);
+            // currentDate = moment().tz('Asia/Singapore').format('DD-MMMM-YYYY');
+            // console.log("Current Date in SG: " + currentDate);
+            // document.getElementById("date").innerHTML = currentDate; // queryParams.date
+            // document.getElementById("time").innerHTML = sgTime; //queryParams.time
+            document.getElementById("date").innerHTML = queryParams.date; // queryParams.date
+            document.getElementById("time").innerHTML = queryParams.time; //queryParams.time
         }
         timeCalculation();
     </script>
