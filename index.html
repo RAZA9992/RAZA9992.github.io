@@ -75,8 +75,8 @@
             // console.log("Current Date in SG: " + currentDate);
             // document.getElementById("date").innerHTML = currentDate; // queryParams.date
             // document.getElementById("time").innerHTML = sgTime; //queryParams.time
-            document.getElementById("date").innerHTML = queryParams.date; // queryParams.date
-            document.getElementById("time").innerHTML = queryParams.time; //queryParams.time
+            document.getElementById("date").innerHTML = decodeURI(queryParams.date); // queryParams.date
+            document.getElementById("time").innerHTML = decodeURIComponent(queryParams.time).replaceAll("+", " "); //queryParams.time
         }
         timeCalculation();
     </script>
