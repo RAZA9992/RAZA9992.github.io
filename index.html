@@ -78,7 +78,7 @@
             let date = decodeURI(queryParams.date);
             date = date.split('-');
             date[1] = date[1][0].toUpperCase() + date[1].slice(1);
-            // console.log(date[1], "Date")
+            console.log(date[1], "Date")
             document.getElementById("date").innerHTML = date.join('-'); // queryParams.date
             document.getElementById("time").innerHTML = decodeURI(queryParams.time).toUpperCase(); //queryParams.time
         }
